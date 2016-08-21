@@ -1,13 +1,13 @@
-# Babel 6.x presets for Node 5.x (updated regularly!)
+# Babel 6.x presets for Node 6.x (updated regularly!)
 
-Node 5.x brings ~59% [native ES6/ES2015 coverage](https://nodejs.org/en/docs/es6/).
+Node 6.x brings ~95% [native ES6/ES2015 coverage](http://node.green).
 
-This preset for Babel 6 attempts to bridge the gap for the much of the remaining 41% of the evolving ECMAScript spec using [Babel plug-ins](https://github.com/babel/babel/tree/master/packages), from stage 0 and up.
+This preset for Babel 6 attempts to bridge the gap for the much of the remaining 5% of the evolving ECMAScript spec using [Babel plug-ins](https://github.com/babel/babel/tree/master/packages), from stage 0 and up.
 
 ## Motivation
 
 Babel 6.x is awesome, but simply including the [ES2015 preset](https://www.npmjs.com/package/babel-preset-es2015) means you're transpiling features
-that your Node 5.x installation can already do faster and natively, replacing them with inferior / old code.
+that your Node 6.x installation can already do faster and natively, replacing them with inferior / old code.
 
 This preset complements existing V8-native functionality - it doesn't work _around_ it.
 
@@ -15,13 +15,9 @@ The end result is nearly always a faster build and script execution time.
 
 ## Key features:
 
-* Strict mode, to enable Classes and `let` (via [babel-plugin-transform-strict-mode](https://www.npmjs.com/package/babel-plugin-transform-strict-mode))
 * Removes trailing commas from function calls (via [babel-plugin-syntax-trailing-function-commas](https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas))
 * CommonJS import/export module syntax ([babel-plugin-transform-es2015-modules-commonjs](https://www.npmjs.com/package/babel-plugin-transform-es2015-modules-commonjs))
-* [Destructuring](http://www.2ality.com/2015/01/es6-destructuring.html) (via [babel-plugin-transform-es2015-destructuring](https://www.npmjs.com/package/babel-plugin-transform-es2015-destructuring))
-* Default and rest parameters (via [babel-plugin-transform-es2015-parameters](https://www.npmjs.com/package/babel-plugin-transform-es2015-parameters))
 * Sticky RegEx (via [babel-plugin-transform-es2015-sticky-regex](https://www.npmjs.com/package/babel-plugin-transform-es2015-sticky-regex))
-* Unicode RegEx (via [babel-plugin-transform-es2015-unicode-regex](https://www.npmjs.com/package/babel-plugin-transform-es2015-unicode-regex))
 * Async/await (via [babel-plugin-transform-async-to-generator](https://www.npmjs.com/package/babel-plugin-transform-async-to-generator) and [babel-plugin-syntax-async-functions](https://www.npmjs.com/package/babel-plugin-syntax-async-functions))
 
 **Note: This package originally shipped with the React preset, but to avoid bloat, doesn't any longer. If you want to add that, please install [babel-preset-react](https://www.npmjs.com/package/babel-preset-react) too**
@@ -32,26 +28,26 @@ The end result is nearly always a faster build and script execution time.
 
 Install via NPM the usual way:
 
-`npm i babel-preset-node5`
+`npm i babel-preset-node6-es6`
 
 ## Usage
 
 ### Via `.babelrc` (recommended)
 
-Create a `.babelrc` file in your project root, and include 'node5' in your preset path:
+Create a `.babelrc` file in your project root, and include 'node6-es6' in your preset path:
 
 ```js
 {
   "presets": [
-    "node5"
+    "node6-es6"
   ]
 }
 ```
 
-Now whenever you run `babel-node`, it will polyfill your app with the ES2015 features that Node 5 is missing.
+Now whenever you run `babel-node`, it will polyfill your app with the ES2015 features that Node 6 is missing.
 
 ### Via CLI
-`$ babel script.js --presets node5`
+`$ babel script.js --presets node6-es6`
 
 ### Via Node API
 
@@ -59,7 +55,7 @@ If you don't want to use a project-wide `.babelrc` file (as above):
 
 ```js
 require("babel-core").transform("code", {
-  presets: ["node5"]
+  presets: ["node6-es6"]
 });
 ```
 
@@ -76,7 +72,7 @@ Of course, make sure to `npm i -S babel-core` or `npm i -S babel-register` respe
 
 ### Webpack, Gulp, Browserify, etc
 
-Follow vendor instructions and include `node5` in your babel "preset" list.
+Follow vendor instructions and include `node6-es6` in your babel "preset" list.
 
 ## How to add React support
 
@@ -91,7 +87,7 @@ And then add it to your "presets" list in `.babelrc`:
 ```js
 {
   "presets": [
-    "node5",
+    "node6-es6",
     "react"
   ]
 }
@@ -124,9 +120,3 @@ In the above example, `fetch` returns a promise. By prefixing the function with 
 We can also wrap promises in `try/catch` blocks, instead of bolting on `.catch()` chains.
 
 The necessary babel plug-ins to use async/await are included in this package, so you can use this syntax right away.
-
-## Using Node 6.x?
-
-This preset is fully compatible with the Node 6.x branch. I do _not_ recommend upgrading to the [babel-preset-node6](https://www.npmjs.com/package/babel-preset-node6) package if you're using stage 1-3 features (such as Airbnb-style trailing commas or `async/await`), as the author is only including stage 4 and code may break.
-
-I will be releasing a separate 6.x branch independently that continues stage 0+ compatibility.

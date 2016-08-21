@@ -6,8 +6,6 @@ module.exports = {
     require('babel-plugin-syntax-trailing-function-commas'),
     require('babel-plugin-transform-es2015-modules-commonjs'),
     require('babel-plugin-transform-es2015-sticky-regex'),
-    require('babel-plugin-transform-es2015-unicode-regex'),
-    require('babel-plugin-transform-strict-mode'),
     require('babel-plugin-transform-object-rest-spread'),
     require('babel-plugin-transform-async-to-generator'),
   ],
