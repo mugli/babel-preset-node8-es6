@@ -1,14 +1,14 @@
 {
-  "name": "babel-preset-node6-es6",
-  "version": "11.2.5",
-  "description": "Babel preset for Node 6.x (ECMAScript stage 0 and up)",
+  "name": "babel-preset-node8-es6",
+  "version": "12.0.0",
+  "description": "Babel preset for Node 8.x (ECMAScript stage 0 and up)",
   "repository": "git@github.com:mugli/babel-preset-node6-es6.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "babel-preset-node6",
+    "babel-preset-node8",
     "babel-preset",
     "babel",
     "node6",
@@ -18,15 +18,7 @@
   "author": "Mehdi Hasan <mhasan@omicronlab.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-syntax-async-functions": "^6.8.0",
-    "babel-plugin-syntax-object-rest-spread": "^6.8.0",
-    "babel-plugin-syntax-trailing-function-commas": "^6.8.0",
-    "babel-plugin-transform-async-to-generator": "^6.8.0",
-    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
-    "babel-plugin-transform-es2015-parameters": "^6.9.0",
-    "babel-plugin-transform-es2015-sticky-regex": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-polyfill": "^6.9.1"
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0"
   }
 }
